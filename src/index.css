@@ -18,7 +18,7 @@
 
 .world-rank {
     position: relative;
-    top: calc((100vh - var(--panel-height)) / 2);
+    top: calc(((100vh - var(--panel-height)) / 2 - 12px));
 }
 
 .planet-earth {
