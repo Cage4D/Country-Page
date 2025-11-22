@@ -4,7 +4,6 @@ function CountryRanking() {
   return (
     <>
       <div className="background">
-        {console.log(window.innerWidth, window.innerHeight)}
         <div className="img-container">
           <svg
             className="world-rank"
