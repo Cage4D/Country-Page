@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
     margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -47,6 +50,10 @@
     border-right: 2px solid hsl(231, 8%, 17%);
     padding: 15px 15px 0px 15px;
     color: #fff;
+    font-family: "Inter", "Helvetica", sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
 }
 
 /*PANEL*/
@@ -62,8 +69,22 @@
     border: none;
     outline: none;
     background-color: 	hsl(227, 10%, 17%);
-    border-radius: 8px;
+    border-radius: 10px;
     height: 2rem;
-    width: 20vw;
+    width: 19vw;
+    padding-left: 2.2rem;
     color: #fff;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+.input-container {
+    position: relative;
+    /* border: 1px solid white; */
+}
+
+.input-search {
+    position: absolute;
+    top: 4px;
+    left: 4px;
 }
