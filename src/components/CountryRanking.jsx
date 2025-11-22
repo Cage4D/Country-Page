@@ -4,6 +4,7 @@ function CountryRanking() {
   return (
     <>
       <div className="background">
+        {console.log(window.innerWidth, window.innerHeight)}
         <div className="img-container">
           <svg
             className="world-rank"
@@ -34,7 +35,38 @@ function CountryRanking() {
         </div>
         <div className="background-bottom"></div>
       </div>
-      <div className="panel"></div>
+      <div className="panel">
+        <div className="header">
+          <p>Found 234 countries</p>
+          <div className="input-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="input-search"
+            >
+              <circle cx="11" cy="11" r="7" stroke="#6C727F" stroke-width="2" />
+              <path
+                d="M20 20L17 17"
+                stroke="#6C727F"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <input
+              type="text"
+              className="header-input"
+              placeholder="Search by Name, Region, Subregion"
+            />
+          </div>
+        </div>
+        <div className="body">
+          <div className="sidebar"></div>
+          <div className="table"></div>
+        </div>
+      </div>
     </>
   );
 }
