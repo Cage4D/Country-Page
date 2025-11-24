@@ -54,7 +54,6 @@
     font-family: "Inter", "Helvetica", sans-serif;
     font-weight: 500;
     font-size: 0.75rem;
-    letter-spacing: 1px;
     display: grid;
     grid-template-rows: 2rem 1fr;
     row-gap: 1rem;
@@ -103,10 +102,113 @@
 
 .sidebar {
     flex: 2;
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 
 .table {
     flex: 8;
     border: 1px solid blue;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.select-input {
+    margin-top: 0.5rem;
+    display: block;
+    border-radius: 8px;
+    height: 2rem;
+    width: 100%;
+    background: none;
+    border: 2px solid hsl(231, 8%, 17%);
+    color: white;
+
+    option {
+        background-color: hsl(231, 8%, 17%);
+    }
+}
+
+.select-input:focus {
+    outline: none;
+}
+
+.toggle-button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.region-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.toggle-button {
+    height: 1.5rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    background: none;
+    color: 	hsl(218, 6%, 75%);
+}
+
+.toggle-button-click {
+    background-color: hsla(206, 3%, 50%, 0.3);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+}
+
+.checkbox-input {
+    margin-right: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox-input:checked {
+    background-color: dodgerblue;
+    border-color: dodgerblue;
+}
+
+.checkbox-input:checked::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.status-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-header {
+    font-size: 0.55rem;
+    font-weight: 600;
 }
