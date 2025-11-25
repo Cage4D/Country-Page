@@ -60,7 +60,7 @@ function CountryRanking() {
       </div>
       <div className="panel">
         <div className="header">
-          <p>Found 234 countries</p>
+          <p>Found {countries.length} countries</p>
           <div className="input-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
