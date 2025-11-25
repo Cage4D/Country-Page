@@ -1,6 +1,30 @@
 import React from "react";
+import Button from "./Button";
+import CheckboxInput from "./checkboxInput";
+import Table from "./Table"
+import { RenderResults } from "./API";
 
 function CountryRanking() {
+  const [selectedSort, setSelectedSort] = React.useState("population");
+  const [selectedRegion, setSelectedRegion] = React.useState([])
+  const [nations, setNations] = React.useState(false)
+  const [independent, setIndependent] = React.useState(false)
+  const [countries, setCountries] = React.useState([])
+
+  React.useEffect(() => {
+    async function fetchData() {
+      const results = await RenderResults(
+        selectedSort,
+        nations,
+        independent,
+        selectedRegion
+      );
+      setCountries(results)
+    }
+
+    fetchData()
+  }, [selectedSort, nations, independent, selectedRegion])
+
   return (
     <>
       <div className="background">
@@ -62,8 +86,50 @@ function CountryRanking() {
           </div>
         </div>
         <div className="body">
-          <div className="sidebar"></div>
-          <div className="table"></div>
+          <div className="sidebar">
+            <label htmlFor="sortBy">
+              <p className="sidebar-header">Sort by</p>
+              <select
+                name="sorting-option"
+                id="sortBy"
+                className="select-input"
+                value={selectedSort}
+                onChange={(event) => setSelectedSort(event.target.value)}
+              >
+                <option value="population">Population</option>
+                <option value="alphabetical-order">Alphabetical Order</option>
+                <option value="area">Area</option>
+              </select>
+            </label>
+
+            {/* REGION */}
+            <div className="region-container">
+              <p className="sidebar-header">Region</p>
+              <div
+                className="toggle-button-group"
+                role="group"
+                >
+                <Button region={"Americas"} state={selectedRegion} setState={setSelectedRegion}>Americas</Button>
+                <Button region={"Antartic"} state={selectedRegion} setState={setSelectedRegion}>Antartica</Button>
+                <Button region={"Africa"} state={selectedRegion} setState={setSelectedRegion}>Africa</Button>
+                <Button region={"Asia"} state={selectedRegion} setState={setSelectedRegion}>Asia</Button>
+                <Button region={"Europe"} state={selectedRegion} setState={setSelectedRegion}>Europe</Button>
+                <Button region={"Oceania"} state={selectedRegion} setState={setSelectedRegion}>Oceania</Button>
+              </div>
+            </div>
+
+            {/* STATUS */}
+            <div className="status-container">
+              <p className="sidebar-header">Status</p>
+              <CheckboxInput id={"United Nations"} state={nations} setState={setNations}>
+                Member of the United Nations
+              </CheckboxInput>
+              <CheckboxInput id={"United Independent-nations"} state={independent} setState={setIndependent}>
+                Independent
+              </CheckboxInput>
+            </div>
+          </div>
+          <div className="display-info"><Table data={countries}/></div>
         </div>
       </div>
     </>
