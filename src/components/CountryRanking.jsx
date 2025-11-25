@@ -56,7 +56,6 @@ function CountryRanking() {
             <rect y="4" width="7.33333" height="4.4" rx="2" fill="#4E80EE" />
           </svg>
         </div>
-        <div className="background-bottom"></div>
       </div>
       <div className="panel">
         <div className="header">
@@ -110,7 +109,7 @@ function CountryRanking() {
                 role="group"
                 >
                 <Button region={"Americas"} state={selectedRegion} setState={setSelectedRegion}>Americas</Button>
-                <Button region={"Antartic"} state={selectedRegion} setState={setSelectedRegion}>Antartica</Button>
+                <Button region={"Antarctic"} state={selectedRegion} setState={setSelectedRegion}>Antartica</Button>
                 <Button region={"Africa"} state={selectedRegion} setState={setSelectedRegion}>Africa</Button>
                 <Button region={"Asia"} state={selectedRegion} setState={setSelectedRegion}>Asia</Button>
                 <Button region={"Europe"} state={selectedRegion} setState={setSelectedRegion}>Europe</Button>
