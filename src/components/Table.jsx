@@ -8,7 +8,7 @@ function Table({ data }) {
           <th scope="col">Flag</th>
           <th scope="col">Name</th>
           <th scope="col">Population</th>
-          <th scope="col">Area(km)</th>
+          <th scope="col">Area(km<sup>2</sup>)</th>
           <th scope="col">Region</th>
         </tr>
       </thead>
