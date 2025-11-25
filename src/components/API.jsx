@@ -8,7 +8,7 @@ async function fetcher(endpoint) {
 
     return json;
   } catch (error) {
-    window.alert("Fetch error: ", error);
+    console.error("Fetch error: ", error);
     return [];
   }
 }
@@ -56,7 +56,7 @@ export async function RenderResults(
 
     return sorted;
   } catch (error) {
-    window.alert("Error fetching countries: ", error);
+    console.error("Error fetching countries: ", error);
     return [];
   }
 }
