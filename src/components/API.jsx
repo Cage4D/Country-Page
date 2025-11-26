@@ -60,3 +60,14 @@ export async function RenderResults(
     return [];
   }
 }
+
+export async function RenderCountryInfo(name) {
+  try {
+    const info = await fetcher(
+      `https://restcountries.com/v3.1/name/${name}?fullText=true`
+    );
+    return info;
+  } catch (error) {
+    console.error("Fetch error: ", error);
+  }
+}
