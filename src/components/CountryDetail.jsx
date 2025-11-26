@@ -1,7 +1,99 @@
 import React from "react";
+import { RenderCountryInfo } from "./API";
 
-function CountryDetails() {
+function CountryDetails({ name }) {
+  const [info, setInfo] = React.useState(null);
+  React.useEffect(() => {
+    async function fetchDetails() {
+      const CountryInfo = await RenderCountryInfo(name);
+      setInfo(CountryInfo[0]);
+    }
 
+    fetchDetails();
+  }, [name]);
+  if (!info) return <p>Loading....</p>
+  return (
+    <>
+      <div className="detail-container">
+        <div className="country-head">
+          <div className="country-img-container">
+            <img
+              src={`https://flagcdn.com/${info.cca2.toLowerCase()}.svg`}
+              alt={`${info.name.common} Flag`}
+              className="image"
+            />
+          </div>
+          <div className="head">
+            <h1>{info.name.common}</h1>
+            <p>{info.name.official}</p>
+          </div>
+          <div className="header-subsection">
+            <div className="header-subsection__tab">
+              <p>Population</p>
+              <div className="divide"></div>
+              <p>{info.population.toLocaleString()}</p>
+            </div>
+            <div className="header-subsection__tab">
+              <p>
+                Area(km<sup>2</sup>)
+              </p>
+              <div className="divide"></div>
+              <p>{info.area.toLocaleString()}</p>
+            </div>
+          </div>
+        </div>
+        <div className="country-body">
+          <p>Capital</p>
+          <p>{info.capital[0]}</p>
+        </div>
+        <div className="country-body">
+          <p>Subregion</p>
+          <p>{info.subregion}</p>
+        </div>
+        <div className="country-body">
+          <p>Language</p>
+          <p>{Object.values(info.languages).join(", ")}</p>
+        </div>
+        <div className="country-body">
+          <p>Currencies</p>
+          <p>{Object.values(info.currencies)[0].name}</p>
+        </div>
+        <div className="country-body">
+          <p>Continents</p>
+          <p>{info.continents[0]}</p>
+        </div>
+        <div className="neighbouring-countries">
+          <p>Neighbouring Countries</p>
+          <div className="bordering-countries">
+            <div className="bordering-countries__group">
+              <img
+                src="https://flagcdn.com/cn.svg"
+                alt="China flag"
+                className="small-flag"
+              />
+              <p>China</p>
+            </div>
+            <div className="bordering-countries__group">
+              <img
+                src="https://flagcdn.com/jp.svg"
+                alt="China flag"
+                className="small-flag"
+              />
+              <p>Japan</p>
+            </div>
+            <div className="bordering-countries__group">
+              <img
+                src="https://flagcdn.com/ru.svg"
+                alt="China flag"
+                className="small-flag"
+              />
+              <p>Russia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default CountryDetails;
