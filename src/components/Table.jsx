@@ -1,6 +1,14 @@
 import React from "react";
+import { CountryContext } from "./CountryContext";
 
 function Table({ data }) {
+    const {setIndividual, setCountryDeets} = React.useContext(CountryContext)
+
+    function handleClick(event) {
+        setCountryDeets(event.target.textContent)
+        setIndividual(true)
+    }
+
   return (
     <table className="table">
       <thead>
@@ -17,13 +25,15 @@ function Table({ data }) {
           return (
             <tr key={item.cca2}>
               <th scope="row">
+                <button className="country-btn" onClick={handleClick}>
                 <img
                   src={`https://flagcdn.com/${item.cca2.toLowerCase()}.svg`}
                   alt={`${item.name.common} Flag`}
                   className="country-flag"
                 />
+                </button>
               </th>
-              <td>{item.name.common}</td>
+              <td><button className="country-btn" onClick={handleClick}>{item.name.common}</button></td>
               <td>{item.population.toLocaleString()}</td>
               <td>{item.area?.toLocaleString()}</td>
               <td>{item.region}</td>
