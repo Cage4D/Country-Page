@@ -1,10 +1,15 @@
 import "./App.css";
+import React from "react"
 import CountryRanking from "./components/CountryRanking";
 import CountryDetails from "./components/CountryDetail";
+import { CountryContext } from "./components/CountryContext";
 
 function App() {
+    const [individual, setIndividual] = React.useState(false)
+    const [countryDeets, setCountryDeets] = React.useState("")
+
   return (
-    <>
+    <CountryContext.Provider value={{ setIndividual, setCountryDeets }}>
       <div className="background">
         <div className="img-container">
           <svg
@@ -35,8 +40,8 @@ function App() {
           </svg>
         </div>
       </div>
-      <CountryRanking/>
-    </>
+      {individual === true ? <CountryDetails name={countryDeets}/> : <CountryRanking/>}
+    </CountryContext.Provider>
   );
 }
 
