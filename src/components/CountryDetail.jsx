@@ -46,7 +46,7 @@ function CountryDetails({ name }) {
         </div>
         <div className="country-body">
           <p>Capital</p>
-          <p>{info.capital ? info.capital[0] : ""}</p>
+          <p>{info.capital ? info.capital[0] : "No Official Capital"}</p>
         </div>
         <div className="country-body">
           <p>Subregion</p>
@@ -54,11 +54,11 @@ function CountryDetails({ name }) {
         </div>
         <div className="country-body">
           <p>Language</p>
-          <p>{info.languages ? Object.values(info.languages).join(", ") : ""}</p>
+          <p>{info.languages ? Object.values(info.languages).join(", ") : "No Official Languages"}</p>
         </div>
         <div className="country-body">
           <p>Currencies</p>
-          <p>{info.currencies ? Object.values(info.currencies)[0].name : ""}</p>
+          <p>{info.currencies ? Object.values(info.currencies)[0].name : "No Official Currencies"}</p>
         </div>
         <div className="country-body">
           <p>Continents</p>
