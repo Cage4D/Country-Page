@@ -11,6 +11,7 @@
 
 body {
     background-color: hsl(240, 2%, 12% );
+    margin-bottom: 30vh;
 }
 
 .background {
@@ -41,13 +42,11 @@ body {
     left: 2vw;
     bottom: 0;
     background-color: hsl(240, 2%, 12%);
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
     top: calc(100vh - var(--panel-default-height));
     /* height: var(--panel-height); */
     width: 96vw;
-    border-top: 2px solid hsl(231, 8%, 17%);
-    border-left: 2px solid hsl(231, 8%, 17%);
-    border-right: 2px solid hsl(231, 8%, 17%);
+    border: 2px solid hsl(231, 8%, 17%);
     padding: 15px 15px 0px 15px;
     color: #fff;
     font-family: "Inter", "Helvetica", sans-serif;
@@ -336,4 +335,20 @@ body {
 .divide {
     height: 100%;
     border-left: 2px solid hsla(230, 8%, 15%, 0.5);
+}
+
+.close-detail-component {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.close-btn {
+    width: 20%;
+    height: 1.7rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: hsla(206, 3%, 50%, 0.2);
+    color: white;
 }
