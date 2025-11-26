@@ -1,7 +1,9 @@
 import React from "react";
 import { RenderCountryInfo } from "./API";
+import { CountryContext } from "./CountryContext";
 
 function CountryDetails({ name }) {
+  const { setIndividual } = React.useContext(CountryContext)
   const [info, setInfo] = React.useState(null);
   React.useEffect(() => {
     async function fetchDetails() {
@@ -44,7 +46,7 @@ function CountryDetails({ name }) {
         </div>
         <div className="country-body">
           <p>Capital</p>
-          <p>{info.capital[0]}</p>
+          <p>{info.capital ? info.capital[0] : ""}</p>
         </div>
         <div className="country-body">
           <p>Subregion</p>
@@ -52,11 +54,11 @@ function CountryDetails({ name }) {
         </div>
         <div className="country-body">
           <p>Language</p>
-          <p>{Object.values(info.languages).join(", ")}</p>
+          <p>{info.languages ? Object.values(info.languages).join(", ") : ""}</p>
         </div>
         <div className="country-body">
           <p>Currencies</p>
-          <p>{Object.values(info.currencies)[0].name}</p>
+          <p>{info.currencies ? Object.values(info.currencies)[0].name : ""}</p>
         </div>
         <div className="country-body">
           <p>Continents</p>
@@ -89,6 +91,11 @@ function CountryDetails({ name }) {
               />
               <p>Russia</p>
             </div>
+          </div>
+          <div className="close-detail-component">
+            <button 
+            className="close-btn"
+            onClick={() => setIndividual(false)}>Close</button>
           </div>
         </div>
       </div>
