@@ -79,7 +79,7 @@ function CountryRanking() {
                 role="group"
                 >
                 <Button region={"Americas"} state={selectedRegion} setState={setSelectedRegion}>Americas</Button>
-                <Button region={"Antarctic"} state={selectedRegion} setState={setSelectedRegion}>Antartica</Button>
+                <Button region={"Antarctic"} state={selectedRegion} setState={setSelectedRegion}>Antarctica</Button>
                 <Button region={"Africa"} state={selectedRegion} setState={setSelectedRegion}>Africa</Button>
                 <Button region={"Asia"} state={selectedRegion} setState={setSelectedRegion}>Asia</Button>
                 <Button region={"Europe"} state={selectedRegion} setState={setSelectedRegion}>Europe</Button>
