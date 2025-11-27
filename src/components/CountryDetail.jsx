@@ -2,6 +2,7 @@ import React from "react";
 import { RenderCountryInfo } from "./API";
 import { CountryContext } from "./CountryContext";
 import Loading from "./Loading"
+import NeighbouringCountries from "./NeighbouringCountries";
 
 function CountryDetails({ name }) {
   const { setIndividual } = React.useContext(CountryContext)
@@ -70,30 +71,7 @@ function CountryDetails({ name }) {
         <div className="neighbouring-countries">
           <p>Neighbouring Countries</p>
           <div className="bordering-countries">
-            <div className="bordering-countries__group">
-              <img
-                src="https://flagcdn.com/cn.svg"
-                alt="China flag"
-                className="small-flag"
-              />
-              <p>China</p>
-            </div>
-            <div className="bordering-countries__group">
-              <img
-                src="https://flagcdn.com/jp.svg"
-                alt="China flag"
-                className="small-flag"
-              />
-              <p>Japan</p>
-            </div>
-            <div className="bordering-countries__group">
-              <img
-                src="https://flagcdn.com/ru.svg"
-                alt="China flag"
-                className="small-flag"
-              />
-              <p>Russia</p>
-            </div>
+            {info.borders ? <NeighbouringCountries borders={info.borders}/> : ""}
           </div>
           <div className="close-detail-component">
             <button 
