@@ -10,6 +10,8 @@ function CountryRanking() {
   const [nations, setNations] = React.useState(false)
   const [independent, setIndependent] = React.useState(false)
   const [countries, setCountries] = React.useState([])
+  const [filteredCountries, setFilteredCountries] = React.useState([])
+  const [input, setInput] = React.useState("")
 
   React.useEffect(() => {
     async function fetchData() {
@@ -20,16 +22,41 @@ function CountryRanking() {
         selectedRegion
       );
       setCountries(results)
+      setFilteredCountries(results)
     }
 
     fetchData()
   }, [selectedSort, nations, independent, selectedRegion])
 
+  React.useEffect(() => {
+    if (countries?.length === 0) {
+      setFilteredCountries([])
+      return;
+    }
+
+    const query = input.trim().toLowerCase();
+    const filtered = countries.filter(country => {
+      const name = country.name.common.toLowerCase();
+      const official = country.name.official?.toLowerCase() || "";
+      const region = country.region?.toLowerCase() || "";
+      const subregion = country.subregion?.toLowerCase() || "";
+
+      return (
+        name.includes(query) ||
+        official.includes(query) ||
+        region.includes(query) || 
+        subregion.includes(query)
+      )
+    })
+
+    setFilteredCountries(filtered)
+  }, [input, countries])
+
   return (
     <>
       <div className="panel">
         <div className="header">
-          <p>Found {countries.length} countries</p>
+          <p>Found {filteredCountries.length} countries</p>
           <div className="input-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +77,10 @@ function CountryRanking() {
             <input
               type="text"
               className="header-input"
+              id="search-input"
               placeholder="Search by Name, Region, Subregion"
+              value={input}
+              onChange={event => setInput(event.target.value)}
             />
           </div>
         </div>
@@ -98,7 +128,7 @@ function CountryRanking() {
               </CheckboxInput>
             </div>
           </div>
-          <div className="display-info"><Table data={countries}/></div>
+          <div className="display-info"><Table data={filteredCountries}/></div>
         </div>
       </div>
     </>
