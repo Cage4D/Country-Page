@@ -11,7 +11,7 @@
 
 body {
     background-color: hsl(240, 2%, 12% );
-    margin-bottom: 30vh;
+    margin-bottom: 50vh;
 }
 
 .background {
@@ -44,7 +44,6 @@ body {
     background-color: hsl(240, 2%, 12%);
     border-radius: 10px;
     top: calc(100vh - var(--panel-default-height));
-    /* height: var(--panel-height); */
     width: 96vw;
     border: 2px solid hsl(231, 8%, 17%);
     padding: 15px 15px 0px 15px;
@@ -55,7 +54,8 @@ body {
     display: grid;
     grid-template-rows: 2rem 1fr;
     row-gap: 1rem;
-    min-height: fit-content;
+    height: fit-content;
+    min-height: 100vh;
 }
 
 /*PANEL*/
@@ -297,11 +297,14 @@ body {
     }
     img {
         width: 6vw;
+        height: 4vw;
         border-radius: 3px;
+        object-fit: cover;
     }
 
     .bordering-countries {
         display: flex;
+        flex-wrap: wrap;
         gap: 8px;
     }
 }
