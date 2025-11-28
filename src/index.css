@@ -247,8 +247,6 @@ body {
 }
 
 .detail-container > * {
-    /* width: 50vw; */
-    height: fit-content;
     background-color: hsl(240, 2%, 12%);
     border-right: 2px solid hsl(231, 8%, 17%);
     border-left: 2px solid hsl(231, 8%, 17%);
