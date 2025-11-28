@@ -274,7 +274,7 @@ body {
 .image {
     border-radius: 10px;
     width: 25%;
-    transform: translateY(-2.5vw);
+    transform: translateY(-4vh);
 }
 
 .country-img-container {
