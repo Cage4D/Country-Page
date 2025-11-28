@@ -247,7 +247,7 @@ body {
 }
 
 .detail-container > * {
-    width: 50vw;
+    /* width: 50vw; */
     height: fit-content;
     background-color: hsl(240, 2%, 12%);
     border-right: 2px solid hsl(231, 8%, 17%);
@@ -370,6 +370,24 @@ body {
     border-radius: 4px;
     width: 6vw;
     height: 1rem;
+}
+
+@media (641px <= width <= 1024px) {
+    .detail-container {
+        height: 40vh;
+    }
+}
+
+@media (width <= 640px) {
+    .detail-container {
+        width: 100%;
+        left: 0;
+        border-radius: 0px;
+    }
+
+    .detail-container > * {
+        border-radius: 0px;
+    }
 }
 
 @media (width <= 412px) {
