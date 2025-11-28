@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import CheckboxInput from "./checkboxInput";
+import CheckboxInput from "./CheckboxInput";
 import Table from "./Table"
 import { RenderResults } from "./API";
 
