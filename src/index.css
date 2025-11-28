@@ -395,6 +395,10 @@ body {
 }
 
 @media (width <= 412px) {
+    .img-container {
+        background: url("../hero-image-sm.jpg") center / cover no-repeat;
+    }
+
     .panel {
         display: flex;
         flex-direction: column;
